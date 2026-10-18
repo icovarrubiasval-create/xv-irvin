@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mis XV · Irvin Yael</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --navy:#070d1f; --navy2:#0e1a3d; --royal:#1d3a8a;
+  --gold:#d4af6a; --gold-l:#f0d9a0; --ivory:#f4ecd8;
+  --display:"Cinzel","Trajan Pro",Georgia,serif;
+  --script:"Pinyon Script","Snell Roundhand",cursive;
+  --body:"Cormorant Garamond",Georgia,serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--navy:#070d1f}}
+:root[data-theme="dark"]{--navy:#070d1f}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--ivory);font-family:var(--body);font-size:1.2rem;line-height:1.55;
+  background-image:radial-gradient(ellipse at 50% 0%,var(--navy2),transparent 60%),radial-gradient(ellipse at 50% 100%,#0a2260 0%,transparent 55%);
+  background-attachment:fixed}
+body.locked{overflow:hidden}
+section{padding:4.5rem 1.25rem;text-align:center;max-width:760px;margin:0 auto}
+.frame{border:1px solid rgba(212,175,106,.45);outline:1px solid rgba(212,175,106,.18);outline-offset:6px}
+h1,h2,h3{font-weight:400;margin:0}
+.kicker{font-family:var(--display);letter-spacing:.3em;color:var(--gold);font-size:1rem}
+.xv{font-family:var(--display);font-weight:600;font-size:clamp(5rem,26vw,9rem);line-height:1;margin:.1em 0;
+  background:linear-gradient(180deg,var(--gold-l),var(--gold) 55%,#8c6a2c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.name{font-family:var(--script);font-size:clamp(2.6rem,11vw,4.2rem);color:var(--gold-l);line-height:1.15}
+.sub{font-style:italic;color:#cfc6ae}
+.rule{width:140px;height:1px;margin:1.6rem auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+h2{font-family:var(--display);font-size:1.5rem;letter-spacing:.18em;color:var(--gold-l);margin-bottom:1.6rem}
+
+/* intro */
+#intro{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:2rem;
+  background:radial-gradient(circle at 50% 35%,#13265c,var(--navy) 70%);transition:transform 1.1s cubic-bezier(.7,0,.2,1),opacity .9s}
+#intro.open{transform:translateY(-100%);opacity:0;pointer-events:none}
+#intro svg{width:120px;filter:drop-shadow(0 0 18px rgba(212,175,106,.55));animation:drop 1.4s ease-out both}
+@keyframes drop{from{transform:translateY(-60px);opacity:0}to{transform:none;opacity:1}}
+.btn{display:inline-block;font-family:var(--display);letter-spacing:.2em;font-size:.95rem;color:var(--navy);text-decoration:none;cursor:pointer;
+  background:linear-gradient(180deg,var(--gold-l),var(--gold));border:0;border-radius:999px;padding:.95rem 2rem;margin-top:1rem;font-weight:600}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:none;color:var(--gold-l);border:1px solid var(--gold);margin:.4rem}
+.btn:focus-visible,.mus:focus-visible{outline:3px solid var(--gold-l);outline-offset:3px}
+
+/* hero */
+.photo{width:min(86%,380px);margin:2rem auto 1.5rem;padding:8px;border-radius:999px 999px 14px 14px;
+  background:linear-gradient(180deg,var(--gold-l),#8c6a2c);box-shadow:0 0 60px rgba(29,58,138,.7)}
+.photo img{display:block;width:100%;height:auto;border-radius:992px 992px 8px 8px}
+
+/* countdown */
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;max-width:520px;margin:0 auto}
+.count div{padding:1rem .2rem;border:1px solid rgba(212,175,106,.5);border-radius:10px;background:rgba(14,26,61,.6)}
+.count b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,8vw,2.6rem);color:var(--gold-l);line-height:1.1}
+.count span{font-size:.95rem;color:#cfc6ae}
+#done{display:none;font-family:var(--script);font-size:2.4rem;color:var(--gold-l)}
+
+/* details */
+.details{padding:2.6rem 1.5rem;margin:0 auto}
+.big{font-family:var(--display);font-size:clamp(1.3rem,5.5vw,1.8rem);letter-spacing:.12em;color:var(--ivory)}
+.venue{font-family:var(--display);font-size:clamp(1.6rem,7vw,2.2rem);color:var(--gold-l);letter-spacing:.1em;margin-top:.4rem}
+address{font-style:normal;margin-top:.4rem}
+.btns{margin-top:1.4rem}
+
+/* band */
+.band img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid rgba(212,175,106,.5);box-shadow:0 10px 50px rgba(0,0,0,.6)}
+.band p{margin:1.4rem auto 0;max-width:34ch}
+footer{padding:3rem 1rem 4rem;text-align:center}
+footer .name{font-size:clamp(2.2rem,9vw,3.2rem)}
+
+.mus{position:fixed;right:max(1rem,env(safe-area-inset-right,0px));bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:40;width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--gold);background:rgba(7,13,31,.85);color:var(--gold-l);font-size:1.3rem;cursor:pointer;display:none}
+.mus.on{display:block}
+@media (prefers-reduced-motion:reduce){#intro,#intro svg{transition:none;animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="locked">
+
+<div id="intro">
+  <svg viewBox="0 0 120 90" fill="none" stroke="#d4af6a" stroke-width="3" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 74 L6 26 L34 48 L60 12 L86 48 L114 26 L108 74 Z" fill="#1d3a8a"/>
+    <path d="M12 74 H108 V84 H12 Z" fill="#d4af6a"/>
+    <circle cx="60" cy="10" r="5" fill="#d4af6a"/><circle cx="6" cy="24" r="4" fill="#d4af6a"/><circle cx="114" cy="24" r="4" fill="#d4af6a"/>
+  </svg>
+  <p class="kicker">Estás invitado a</p>
+  <h1 class="name">Mis XV años</h1>
+  <button class="btn" id="open" type="button">Abrir invitación</button>
+</div>
+
+<main>
+  <section id="inicio">
+    <p class="kicker">Mis</p>
+    <div class="xv">XV</div>
+    <p class="kicker">Años</p>
+    <div class="photo"><img src="foto-irvin.jpg" alt="Irvin con corona y capa azul marino"></div>
+    <h2 class="name" style="font-family:var(--script);letter-spacing:0;color:var(--gold-l);font-size:clamp(2.4rem,10vw,3.8rem)">Irvin Yael<br>Estrada Regalado</h2>
+    <div class="rule"></div>
+    <p class="sub">Quiero celebrar este día tan especial contigo.</p>
+  </section>
+
+  <section id="cuenta">
+    <h2>Faltan</h2>
+    <div class="count" id="count" aria-live="off">
+      <div><b id="d">0</b><span>días</span></div>
+      <div><b id="h">0</b><span>horas</span></div>
+      <div><b id="m">0</b><span>min</span></div>
+      <div><b id="s">0</b><span>seg</span></div>
+    </div>
+    <p id="done">¡Hoy es el gran día!</p>
+  </section>
+
+  <section id="donde">
+    <div class="details frame">
+      <h2>Cuándo y dónde</h2>
+      <div class="big">Sábado 26 de diciembre</div>
+      <div class="big">5:30 p. m.</div>
+      <div class="rule"></div>
+      <div class="venue">Salón Yola</div>
+      <address>Calle Noche Buena s/n<br>Ejido Anna, Torreón, Coahuila</address>
+      <div class="btns">
+        <a class="btn" href="https://maps.app.goo.gl/MKPW8Cydk5q3d6KG8?g_st=iw" target="_blank" rel="noopener">Ver ubicación en Google Maps</a><br>
+        <a class="btn ghost" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+Irvin+Yael&dates=20261226T173000/20261227T020000&ctz=America/Mexico_City&location=Salon+Yola%2C+Calle+Noche+Buena+s%2Fn%2C+Ejido+Anna%2C+Torre%C3%B3n%2C+Coahuila" target="_blank" rel="noopener">Agregar al calendario</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="musica">
+    <h2>Música en vivo</h2>
+    <img src="intenzo-musical.jpg" alt="Intenzo Musical con sacos azules brillantes y sombreros blancos">
+    <p class="sub">Intenzo Musical nos acompañará para bailar toda la noche.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="rule"></div>
+  <div class="kicker">Te esperamos</div>
+  <div class="name">Irvin Yael</div>
+</footer>
+
+<audio id="bg" loop preload="auto" playsinline></audio>
+<button class="mus" id="mus" type="button" aria-label="Pausar o reanudar la música">♪</button>
+
+<script>
+(function(){
+  var intro=document.getElementById('intro'), audio=document.getElementById('bg'), mus=document.getElementById('mus');
+    var hasAudio=true;
+  function sync(){ mus.textContent=audio.paused?'♪':'❚❚'; mus.style.opacity=audio.paused?.6:1; }
+  if(hasAudio){
+    audio.src='cancion.mp3';
+    mus.classList.add('on');
+  }
+  document.getElementById('open').addEventListener('click',function(){
+    intro.classList.add('open'); document.body.classList.remove('locked');
+    if(hasAudio){ audio.volume=.7; var p=audio.play(); if(p&&p.then){p.then(sync).catch(sync);} else sync(); }
+  });
+  mus.addEventListener('click',function(){ audio.paused?audio.play():audio.pause(); sync(); });
+  audio.addEventListener('play',sync); audio.addEventListener('pause',sync);
+
+  var target=new Date(2026,11,26,17,30,0).getTime();
+  var el={d:document.getElementById('d'),h:document.getElementById('h'),m:document.getElementById('m'),s:document.getElementById('s')};
+  function pad(n){return String(n).padStart(2,'0');}
+  function tick(){
+    var diff=target-Date.now();
+    if(diff<=0){document.getElementById('count').style.display='none';document.getElementById('done').style.display='block';return;}
+    var s=Math.floor(diff/1000);
+    el.d.textContent=Math.floor(s/86400); el.h.textContent=pad(Math.floor(s%86400/3600));
+    el.m.textContent=pad(Math.floor(s%3600/60)); el.s.textContent=pad(s%60);
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
